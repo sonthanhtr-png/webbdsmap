@@ -1,91 +1,324 @@
 :root {
   color-scheme: light;
-  font-family: system-ui, -apple-system, BlinkMacSystemFont, "Segoe UI", sans-serif;
+  font-family: "Inter", system-ui, -apple-system, BlinkMacSystemFont, "Segoe UI",
+    sans-serif;
   line-height: 1.6;
   background: #f8fafc;
   color: #0f172a;
 }
 
+* {
+  box-sizing: border-box;
+}
+
 body {
   margin: 0;
   padding: 0;
+  background: #f8fafc;
 }
 
 a {
   color: inherit;
+  text-decoration: none;
+}
+
+a:hover {
+  text-decoration: underline;
 }
 
 main {
-  padding: 2rem;
+  padding: 0;
 }
 
-.form-card {
-  max-width: 480px;
-  margin: 2rem auto;
-  padding: 2rem;
-  background: #fff;
+.page {
+  min-height: 100vh;
+  display: flex;
+  flex-direction: column;
+}
+
+.header {
+  position: sticky;
+  top: 0;
+  backdrop-filter: blur(10px);
+  background: rgba(248, 250, 252, 0.9);
+  border-bottom: 1px solid #e2e8f0;
+  padding: 1rem 4vw;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  z-index: 10;
+}
+
+.brand {
+  font-weight: 800;
+  letter-spacing: -0.02em;
+  font-size: 1.1rem;
+}
+
+.nav {
+  display: flex;
+  align-items: center;
+  gap: 0.75rem;
+  flex-wrap: wrap;
+}
+
+.nav a {
+  padding: 0.55rem 0.85rem;
+  border-radius: 10px;
+  font-weight: 600;
+  text-decoration: none;
+  color: #0f172a;
+  transition: background 0.2s ease, color 0.2s ease;
+}
+
+.nav a:hover {
+  background: #e2e8f0;
+}
+
+.nav .primary {
+  background: #2563eb;
+  color: white;
+}
+
+.nav .primary:hover {
+  background: #1d4ed8;
+}
+
+.nav .ghost {
+  background: #e2e8f0;
+}
+
+.content {
+  padding: 2rem 4vw 4rem;
+  display: flex;
+  flex-direction: column;
+  gap: 3rem;
+}
+
+.hero {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(320px, 1fr));
+  gap: 1.5rem;
+  align-items: center;
+}
+
+.eyebrow {
+  text-transform: uppercase;
+  letter-spacing: 0.08em;
+  font-weight: 700;
+  color: #2563eb;
+  margin: 0 0 0.35rem;
+  font-size: 0.85rem;
+}
+
+.hero h1 {
+  margin: 0 0 0.75rem;
+  font-size: clamp(2rem, 4vw, 2.6rem);
+  line-height: 1.2;
+}
+
+.lede {
+  margin: 0 0 1.25rem;
+  color: #334155;
+  font-size: 1.05rem;
+}
+
+.cta-row {
+  display: flex;
+  gap: 0.75rem;
+  flex-wrap: wrap;
+  margin: 1rem 0;
+}
+
+.cta {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  padding: 0.85rem 1.2rem;
   border-radius: 12px;
-  box-shadow: 0 10px 30px rgba(15, 23, 42, 0.08);
+  font-weight: 700;
+  text-decoration: none;
+  transition: transform 0.15s ease, background 0.2s ease, color 0.2s ease;
 }
 
-.form-card h1 {
-  margin-top: 0;
+.cta.primary {
+  background: #2563eb;
+  color: #fff;
+}
+
+.cta.primary:hover {
+  background: #1d4ed8;
+  transform: translateY(-1px);
+}
+
+.cta.ghost {
+  background: #e2e8f0;
+  color: #0f172a;
+}
+
+.cta.ghost:hover {
+  background: #cbd5e1;
+  transform: translateY(-1px);
+}
+
+.meta {
+  margin: 0;
+  color: #64748b;
+  font-size: 0.95rem;
+}
+
+.card,
+.feature-card,
+.profile-card,
+.pricing-card,
+.comparison-card {
+  background: white;
+  border-radius: 16px;
+  padding: 1.25rem;
+  border: 1px solid #e2e8f0;
+  box-shadow: 0 12px 30px rgba(15, 23, 42, 0.08);
+}
+
+.card-header {
+  font-weight: 700;
   margin-bottom: 0.5rem;
+  color: #0f172a;
 }
 
-.form-card p {
-  margin-top: 0;
-  color: #475569;
+.section {
+  display: flex;
+  flex-direction: column;
+  gap: 1.5rem;
 }
 
-form {
+.section.muted {
+  background: #eef2ff;
+  padding: 2rem;
+  border-radius: 18px;
+  border: 1px solid #e0e7ff;
+}
+
+.section-head h2 {
+  margin: 0.15rem 0 0;
+  font-size: 1.6rem;
+}
+
+.grid {
   display: grid;
   gap: 1rem;
 }
 
-label {
+.grid.four {
+  grid-template-columns: repeat(auto-fit, minmax(220px, 1fr));
+}
+
+.grid.three {
+  grid-template-columns: repeat(auto-fit, minmax(240px, 1fr));
+}
+
+.feature-card h3,
+.profile-card h3,
+.pricing-card h3,
+.comparison-card h3 {
+  margin: 0 0 0.35rem;
+}
+
+.feature-card p,
+.profile-card p,
+.pricing-card p,
+.comparison-card p {
+  margin: 0;
+  color: #475569;
+}
+
+.profile-card {
+  display: flex;
+  align-items: center;
+  gap: 1rem;
+}
+
+.avatar {
+  width: 52px;
+  height: 52px;
+  border-radius: 50%;
+  display: grid;
+  place-items: center;
+  background: linear-gradient(135deg, #6366f1, #2563eb);
+  color: white;
+  font-weight: 800;
+  font-size: 1.15rem;
+}
+
+.pricing-card {
+  display: grid;
+  gap: 0.75rem;
+  align-content: start;
+}
+
+.pricing-card ul {
+  margin: 0;
+  padding-left: 1rem;
+  color: #475569;
   display: grid;
   gap: 0.35rem;
+}
+
+.pricing-card .price {
+  font-size: 1.5rem;
+  font-weight: 800;
+  margin: 0;
+}
+
+.pricing-card.highlight {
+  border: 2px solid #2563eb;
+  box-shadow: 0 16px 36px rgba(37, 99, 235, 0.15);
+}
+
+.comparison {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(240px, 1fr));
+  gap: 1rem;
+}
+
+.comparison-card .pros {
+  color: #0f172a;
   font-weight: 600;
 }
 
-input {
-  border: 1px solid #cbd5e1;
-  border-radius: 8px;
-  padding: 0.75rem 0.85rem;
-  font-size: 1rem;
+.comparison-card .cons {
+  color: #b91c1c;
 }
 
-button {
-  border: none;
-  background: #2563eb;
+.cta-banner {
+  background: linear-gradient(135deg, #2563eb, #1e293b);
   color: white;
-  padding: 0.85rem 1rem;
-  border-radius: 10px;
-  font-weight: 700;
-  cursor: pointer;
-  transition: background 0.2s ease;
+  padding: 2rem;
+  border-radius: 18px;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 1rem;
+  flex-wrap: wrap;
 }
 
-button:hover {
-  background: #1d4ed8;
+.cta-banner h2 {
+  margin: 0 0 0.35rem;
 }
 
-.toggle {
-  text-align: center;
-  margin-top: 0.25rem;
+.cta-banner p {
+  margin: 0;
+  color: #e2e8f0;
 }
 
-.alert {
-  padding: 0.75rem 1rem;
-  border-radius: 8px;
-  background: #fef9c3;
-  color: #854d0e;
-  border: 1px solid #facc15;
-}
+@media (max-width: 720px) {
+  .header {
+    flex-direction: column;
+    align-items: flex-start;
+    gap: 0.5rem;
+  }
 
-.success {
-  background: #dcfce7;
-  color: #166534;
-  border: 1px solid #86efac;
+  .cta-banner {
+    flex-direction: column;
+    align-items: flex-start;
+  }
 }
