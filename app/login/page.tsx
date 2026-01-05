@@ -79,7 +79,11 @@ export default function LoginPage() {
   return (
     <div className="form-card">
       <h1>{isRegister ? "Đăng ký" : "Đăng nhập"}</h1>
-      <p>Nhập email và mật khẩu Supabase để tiếp tục.</p>
+      <p>
+        Nhập email và mật khẩu Supabase để tiếp tục. Nếu mới đăng ký lần đầu,
+        hãy mở bảng <code>profiles</code> và gán cột <code>role</code> cho tài
+        khoản (customer / sales / admin).
+      </p>
 
       {error ? <div className="alert">{error}</div> : null}
       {status ? <div className="alert success">{status}</div> : null}
